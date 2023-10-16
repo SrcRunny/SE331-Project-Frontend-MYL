@@ -20,6 +20,12 @@ defineProps({
     <p>StudentID : {{ student?.studentid  }}</p>
     <p>Location : {{ student?.location  }}</p>
     <p>Department : {{ student?.department  }}</p>
+    <h2 class="card-title">Advisee</h2>
+    <p>Name : {{ student?.advisor.name }} {{ student?.advisor.surname  }}</p>
+    <p>Position : {{ student?.advisor.academic_position  }}</p>
+    <p>Department : {{  student?.advisor.department }}</p>
+
+
   </div>
 </div>
 </template>

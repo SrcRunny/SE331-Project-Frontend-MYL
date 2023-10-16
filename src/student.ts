@@ -13,6 +13,7 @@ export interface StudentInfo{
 export interface StudentAdvisorDTO{
     id: number
     name: string
+    surname: string
     academic_position: string
     department: string
 }
