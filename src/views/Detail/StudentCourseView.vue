@@ -15,11 +15,9 @@ defineProps({
     <div class="card lg:card-side bg-base-100 shadow-xl animate__animated animate__zoomIn">
   <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Album"/></figure>
   <div class="card-body">
-    <h2 class="card-title">Profile</h2>
-    <p>Name : {{ student?.name }} {{ student?.surname }}</p>
-    <p>StudentID : {{ student?.studentid  }}</p>
-    <p>Location : {{ student?.location  }}</p>
-    <p>Department : {{ student?.department  }}</p>
+    <h2 class="card-title">Course</h2>
+    <p>Name : {{ student?.courses.name }}</p>
+    <p>Course : {{ student?.courses.description  }}</p>
   </div>
 </div>
 </template>

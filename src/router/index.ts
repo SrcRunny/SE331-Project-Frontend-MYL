@@ -4,6 +4,9 @@ import CourseListView from '../views/CourseListView.vue'
 import StudentListView from '../views/StudentListView.vue'
 import StudentDetailView from '../views/Detail/StudentDetail.vue'
 import StudentLayoutView from '../views/Detail/StudentLayoutView.vue'
+import StudentAdvisorView from '../views/Detail/StudentAdvisorView.vue'
+import StudentCourseView from '../views/Detail/StudentCourseView.vue'
+import StudentCommentView from '../views/Detail/StudentCommentView.vue'
 import StudentService from '../service/StudentService'
 import { useStudentStore } from '@/stores/student'
 
@@ -58,6 +61,24 @@ const router = createRouter({
           path:'',
           name: 'studentdetail',
           component: StudentDetailView,
+          props: true
+        },
+        {
+          path:'/studentadvisor',
+          name: 'studentadvisor',
+          component: StudentAdvisorView,
+          props: true
+        },
+        {
+          path:'/studentcourse',
+          name: 'studentcourse',
+          component: StudentCourseView,
+          props: true
+        },
+        {
+          path:'/studentcomment',
+          name: 'studentcomment',
+          component: StudentCommentView,
           props: true
         }
       ]
