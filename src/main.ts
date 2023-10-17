@@ -1,5 +1,6 @@
 import './assets/main.css'
 import 'animate.css';
+import 'sweetalert2/src/sweetalert2.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
