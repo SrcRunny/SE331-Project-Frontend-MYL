@@ -18,11 +18,12 @@ const props = defineProps({
     <p>Department : {{ advisor?.department  }}</p>
     <p>Position : {{ advisor?.academic_position  }}</p>
 
-
-
+    <RouterLink :to="{name: 'advisordetail', params:{id: advisor?.id}}">
     <div class="card-actions justify-end  mt-3">
       <button class="btn btn-primary">View Detail</button>
     </div>
+  </RouterLink>
+
   </div>
 </div>
 </template>

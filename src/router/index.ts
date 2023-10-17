@@ -8,7 +8,12 @@ import StudentAdvisorView from '../views/Detail/StudentAdvisorView.vue'
 import StudentCourseView from '../views/Detail/StudentCourseView.vue'
 import StudentCommentView from '../views/Detail/StudentCommentView.vue'
 import StudentService from '../service/StudentService'
+import AdvisorLayoutView from '../views/Advisor/AdvisorLayoutView.vue'
+import AdvisorDetailView from '../views/Advisor/AdvisorDetail.vue'
+import AdvisorStudentView from '../views/Advisor/AdvisorStudentView.vue'
+import AdvisorService from '@/service/AdvisorService'
 import { useStudentStore } from '@/stores/student'
+import { useAdvisorStore } from '@/stores/advisor'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -79,6 +84,44 @@ const router = createRouter({
           path:'/studentcomment',
           name: 'studentcomment',
           component: StudentCommentView,
+          props: true
+        }
+      ]
+    },
+    {
+      path: '/advisor/:id',
+      name: 'advisorlayout',
+      component: AdvisorLayoutView, 
+      props: true,
+        beforeEnter: (to) => {
+          const id: number = parseInt(to.params.id as string)
+          const advisorStore = useAdvisorStore()
+          return AdvisorService.getAdvisorById(id)
+          .then((response) => {
+            advisorStore.setAdvisor(response.data)
+          })
+          .catch((error) => {
+            if (error.response && error.response.status === 404){
+              return{
+                name: '404-resource',
+                params: { resource: 'advisor'}
+              }
+            }else{
+              return { name: 'network-error'}
+            }
+          })
+        },
+      children:[
+        {
+          path:'',
+          name: 'advisordetail',
+          component: AdvisorDetailView,
+          props: true
+        },
+        {
+          path:'/advisorstudent',
+          name: 'advisorstudent',
+          component: AdvisorStudentView,
           props: true
         }
       ]

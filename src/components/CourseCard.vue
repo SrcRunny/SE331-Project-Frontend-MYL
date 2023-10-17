@@ -18,9 +18,6 @@ const props = defineProps({
         <h2 class="card-title">{{ course?.name  }}</h2>
         <p>"{{ course?.description  }}"</p>
     
-        <div class="card-actions justify-end  mt-3">
-          <button class="btn btn-primary">View Detail</button>
-        </div>
       </div>
     </div>
     </template>
