@@ -43,10 +43,19 @@ const router = useRouter()
       
       <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
+          <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fadvisor_3534113&psig=AOvVaw35P3cx2YrQzv80LkEC09jZ&ust=1697746670384000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKDRk661gIIDFQAAAAAdAAAAABAE" class="h-8 mr-" alt="Advisor-logo" />
+        </li>
+        <li>
           <router-link :to="{name:'advisor'}" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Advisor</router-link>
         </li>
         <li>
+          <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fonline-course_3527371&psig=AOvVaw2ost2F8JlPxp554X6AIZm1&ust=1697747463561000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiZ7KW4gIIDFQAAAAAdAAAAABAE" class="h-8 " alt="Course-logo" />
+        </li>
+        <li>
           <router-link :to="{name:'course'}" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Course</router-link>
+        </li>
+        <li>
+          <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fstudent_5850276&psig=AOvVaw3CrvUYPNgzNp4wezCuyO8M&ust=1697747407036000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDi2Yq4gIIDFQAAAAAdAAAAABAE" class="h-6 " alt="Student-logo" />
         </li>
         <li>
           <router-link :to="{name:'student'}" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Student</router-link>
