@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import AdvisorListView from '../views/AdvisorListView.vue'
 import CourseListView from '../views/CourseListView.vue'
 import StudentListView from '../views/StudentListView.vue'
+import LoginView from '../views/LoginView.vue'
+import RegisterView from '../views/RegisterView.vue'
 import StudentDetailView from '../views/Detail/StudentDetail.vue'
 import StudentLayoutView from '../views/Detail/StudentLayoutView.vue'
 import StudentAdvisorView from '../views/Detail/StudentAdvisorView.vue'
@@ -30,6 +32,18 @@ const router = createRouter({
       name: 'course',
       component: CourseListView,
       props: (route) => ({page: parseInt(route.query?.page as string || '1' )})
+
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView,
+
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: RegisterView,
 
     },
     {
