@@ -7,7 +7,7 @@ export interface StudentInfo{
     location: string
     images: string[]
     advisor: StudentAdvisorDTO
-    courses: StudentCourseDTO
+    courses: StudentCourseDTO[]
 }
 
 export interface StudentAdvisorDTO{

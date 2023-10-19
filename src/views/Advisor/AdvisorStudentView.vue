@@ -14,11 +14,11 @@ defineProps({
 <template>
     <div class="card lg:card-side bg-base-100 shadow-xl animate__animated animate__zoomIn">
   <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Album"/></figure>
-  <div class="card-body">
-    <h2 class="card-title">Student</h2>
-    <p>Name : {{ advisor?.students.name }} {{ advisor?.students.surname }}</p>
-    <p>Location : {{ advisor?.students.location }}</p>
-    <p>Department : {{  advisor?.students.department }} </p>
+  <div v-for="advisees in advisor?.ownStudents" :key="advisees.id" class="card-body">
+    <h2 class="card-title">Advisees</h2>
+    <p>Name : {{ advisees.name }} {{ advisees.surname }}</p>
+    <p>Location : {{ advisees.location }}</p>
+    <p>Department : {{  advisees.department }} </p>
   </div>
 </div>
 </template>
