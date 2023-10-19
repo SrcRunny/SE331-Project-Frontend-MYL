@@ -13,7 +13,6 @@ defineProps({
 
 <template>
     <div class="card lg:card-side bg-base-100 shadow-xl animate__animated animate__zoomIn">
-  <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Album"/></figure>
   <div class="card-body">
     <h2 class="card-title">Comment</h2>
 

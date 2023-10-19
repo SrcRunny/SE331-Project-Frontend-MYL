@@ -13,7 +13,7 @@ const props = defineProps({
 
 <template>
     <div class="card w-96 bg-base-100 shadow-xl box animate__animated animate__fadeInLeft">
-      <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+      <img v-for="image in course?.images" :key="image" :src="image" class="rounded-md w-13 h-13 "/>
       <div class="card-body">
         <h2 class="card-title">{{ course?.name  }}</h2>
         <p>"{{ course?.description  }}"</p>
@@ -26,4 +26,8 @@ const props = defineProps({
     .box{
         margin: 2%;
     }
+    img{
+  width: 350x;
+  height: 300px;
+}
     </style>
