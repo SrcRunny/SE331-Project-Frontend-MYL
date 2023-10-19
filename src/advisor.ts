@@ -5,11 +5,12 @@ export interface AdvisorInfo{
     academic_position: string
     department: string
     images: string[]
-    students: AdvisorStudentDTO
+    ownStudents: AdvisorStudentDTO[]
 }
 
 export interface AdvisorStudentDTO{
     id: number
+    studentid: string
     name: string
     surname: string
     department: string

@@ -4,6 +4,7 @@ export interface CourseInfo{
     courseid: string
     name: string
     studentHistory: CourseStudentDTO
+    images: String[]
 }
 
 export interface CourseStudentDTO{
