@@ -7,6 +7,7 @@ import { useRouter } from 'vue-router'
 import { onBeforeRouteUpdate } from 'vue-router'
 import type { StudentInfo } from '@/student'
 import StudentService from '../service/StudentService'
+import BaseInput from '../components/BaseInput.vue'
 
 const students: Ref<StudentInfo[]> = ref([])
 const router = useRouter()
@@ -29,6 +30,24 @@ StudentService.getStudent(3, props.page)
 }).catch(() => {
   router.push({ name: 'NetworkError' })
 })
+
+function updateKeyword () {
+  let queryFunction;
+  if (keyword.value === ''){
+    queryFunction = StudentService.getStudent(3, 1)
+  }else {
+    queryFunction = StudentService.getStudentsByKeyword(keyword.value, 3, 1)
+  }
+  queryFunction
+  .then((response: AxiosResponse<StudentInfo[]>) => {
+    students.value = response.data
+    console.log('students',students.value)
+    totalStudent.value = response.headers['x-total-count']
+    console.log('totalStudent',totalStudent.value)
+  }).catch(() => {
+    router.push({ name: 'NetworkError' })
+  })
+}
 
 onBeforeRouteUpdate((to, from, next) => {
   const toPage = Number(to.query.page)
@@ -100,6 +119,19 @@ const confirmstudent = async () => {
         + Add Student
       </button>
     </div>
+    <div class="flex justify-center items-center flex-wrap ">
+      <div class="w-64 text-center">
+        <BaseInput
+        v-model="keyword"
+        type="text"
+        class="w-full h-10 px-4 pr-10 border rounded focus:outline-none focus:ring focus:border-blue-300"
+        label="Search       "
+        @input="updateKeyword"
+      />      
+    </div>
+  </div>
+
+
     <div class="flex justify-center items-center flex-wrap ">
         <StudentCard
       v-for="student in students"
