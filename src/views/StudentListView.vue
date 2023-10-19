@@ -72,40 +72,7 @@ const hasNextPage = computed(()=>{
   return props.page.valueOf() < totalPages
 })
 
-import Swal from 'sweetalert2';
 
-const confirmstudent = async () => {
-  const { value: formValues } = await Swal.fire({
-    title: 'Add Student Detail',
-    html:
-      '<input id="swal-input1" class="swal2-input" placeholder="Name">' +
-      '<input id="swal-input2" class="swal2-input" placeholder="Surname">' +
-      '<input id="swal-input3" class="swal2-input" placeholder="StudentID">' +
-      '<input id="swal-input4" class="swal2-input" placeholder="Department">' +
-      '<input id="swal-input5" class="swal2-input" placeholder="Location">' ,
-    focusConfirm: false,
-    showCancelButton: true,
-    preConfirm: () => {
-      return {
-        input1: (document.getElementById('swal-input1') as HTMLInputElement).value,
-        input2: (document.getElementById('swal-input2') as HTMLInputElement).value,
-        input3: (document.getElementById('swal-input3') as HTMLInputElement).value,
-        input4: (document.getElementById('swal-input4') as HTMLInputElement).value,
-        input5: (document.getElementById('swal-input4') as HTMLInputElement).value
-
-      };
-    }
-  });
-
-  if (formValues) {
-    const { input1, input2, input3, input4} = formValues;
-    Swal.fire(
-      'Submitted!',
-      `"You have successfull added the Student"`
-      ,'success'
-    );
-  }
-};
 
 
 </script>
@@ -114,10 +81,12 @@ const confirmstudent = async () => {
     <div class="flex justify-center items-center flex-wrap">
       <h1 class="text-3xl font-semibold tracking-wide">Student List</h1>
     </div>
-    <div class="flex justify-center items-center flex-wrap mr-6">
-      <button @click="confirmstudent" type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-auto">
+    <div class="flex justify-end items-center flex-wrap mr-6">
+      <router-link :to="{name:'studentform'}">
+      <button type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-auto">
         + Add Student
       </button>
+    </router-link>
     </div>
     <div class="flex justify-center items-center flex-wrap ">
       <div class="w-64 text-center">

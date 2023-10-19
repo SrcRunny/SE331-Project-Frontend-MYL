@@ -36,6 +36,6 @@ const props = defineProps({
 
 img{
   width: 350x;
-  height: 300px;
+  height: 350px;
 }
 </style>

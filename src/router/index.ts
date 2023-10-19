@@ -5,6 +5,8 @@ import StudentListView from '../views/StudentListView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import StudentDetailView from '../views/Detail/StudentDetail.vue'
+import StudentFormView from '../views/StudentFormView.vue'
+import AdvisorFormView from '../views/AdvisorFormView.vue'
 import StudentLayoutView from '../views/Detail/StudentLayoutView.vue'
 import StudentAdvisorView from '../views/Detail/StudentAdvisorView.vue'
 import StudentCourseView from '../views/Detail/StudentCourseView.vue'
@@ -45,6 +47,17 @@ const router = createRouter({
       name: 'register',
       component: RegisterView,
 
+    },
+    {
+      path: '/studentform',
+      name: 'studentform',
+      component: StudentFormView,
+
+    },
+    {
+      path: '/advisorform',
+      name: 'advisorform',
+      component: AdvisorFormView,
     },
     {
       path: '/',
