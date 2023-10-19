@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
 <div class="card w-96 bg-base-100 shadow-xl box animate__animated animate__fadeInLeft">
-  <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+  <img v-for="image in advisor?.images" :key="image" :src="image" class="rounded-md w-13 h-13 "/>
   <div class="card-body">
     <h2 class="card-title">{{ advisor?.name  }} {{ advisor?.surname }}</h2>
     <p>Department : {{ advisor?.department  }}</p>
@@ -36,4 +36,7 @@ const props = defineProps({
   margin: 1%;
 }
 
+img{
+
+}
 </style>

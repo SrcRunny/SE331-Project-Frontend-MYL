@@ -16,10 +16,12 @@ export interface StudentAdvisorDTO{
     surname: string
     academic_position: string
     department: string
+    images: string
 }
 
 export interface StudentCourseDTO{
     courseid: string
     name: string
     description: string 
+    images: string
 }

@@ -132,6 +132,3 @@ const confirmstudent = async () => {
     
 </template>
 
-<style scoped>
-
-</style>

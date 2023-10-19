@@ -13,7 +13,7 @@ defineProps({
 
 <template>
     <div class="card lg:card-side bg-base-100 shadow-xl animate__animated animate__zoomIn">
-  <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Album"/></figure>
+      <img v-for="image in advisor?.images" :key="image" :src="image" class="rounded-md w-13 h-13 "/>
   <div class="card-body">
     <h2 class="card-title">Profile</h2>
     <p>Name : {{ advisor?.name }} {{ advisor?.surname }}</p>
@@ -22,3 +22,12 @@ defineProps({
   </div>
 </div>
 </template>
+
+<style scoped>
+img{
+  
+  width: 350px;
+  height: 300px;
+
+}
+</style>

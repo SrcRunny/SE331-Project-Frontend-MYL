@@ -15,4 +15,5 @@ export interface AdvisorStudentDTO{
     surname: string
     department: string
     location: string
+    images: string[]
 }
