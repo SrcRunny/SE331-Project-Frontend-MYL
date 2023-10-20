@@ -66,7 +66,10 @@ const onSubmit = handleSubmit((values) => {
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           <InputText type="text" v-model="email" :error="errors['email']"></InputText>
         </div>
-  
+        <div>
+          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">StudentID</label>
+          <InputText type="text" v-model="username" :error="errors['username']"></InputText>
+        </div>
         <div>
           <div class="flex items-center justify-between">
             <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
@@ -81,20 +84,12 @@ const onSubmit = handleSubmit((values) => {
           <label for="lastname" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
           <InputText type="text" v-model="lastname" :error="errors['lastname']"></InputText>
         </div>
-        <div>
-          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">User name</label>
-          <InputText type="text" v-model="username" :error="errors['username']"></InputText>
-        </div>
+        
         
         <div>
           <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
         </div>
       </form>
-  
-      <p class="mt-10 text-center text-sm text-gray-500">
-        Not a member?
-        <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
-      </p>
     </div>
   </div>
   
