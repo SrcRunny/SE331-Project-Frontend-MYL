@@ -6,18 +6,23 @@ import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
 import BaseInput from '../components/BaseInput.vue'
 import ImageUpload from '../components/ImageUpload.vue'
+import Swal from 'sweetalert2'
+
 const store = useMessageStore()
 
 
 const router = useRouter()
 function saveStudent() {
   StudentService.saveStudent(student.value)
-        .then((response) => {
+  .then((response) => {
             console.log(response.data)
-            router.push({
-                name: 'student',
-                params: { id: response.data.id }
-            })
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'You are successfully add a new Student!!',
+                showConfirmButton: false,
+                timer: 2000
+            });
                         store.updateMessage('You are successfully add a new Student!!')
             setTimeout(() => {
                 store.resetMessage()
@@ -36,7 +41,7 @@ const student = ref<StudentInfo>({
     department: '',
     location: '',
     images: [],
-    advisor: {id: 0,name:'',surname:'', academic_position:'',department: '', images:''},
+    advisor: { id: 0,name:'',surname:'', academic_position:'',department: '', images:''},
     courses: []
 })
 
@@ -47,7 +52,7 @@ const student = ref<StudentInfo>({
   <h2 class="text-2xl font-semibold mb-4">Add Student</h2>
   <form @submit.prevent="saveStudent">
     <div class="mb-4">
-      <label for="studentId" class="block text-sm font-medium text-gray-600">Student ID:</label>
+      <label for="studentid" class="block text-sm font-medium text-gray-600">Student ID:</label>
       <BaseInput
           v-model="student.studentid"
            type="text"
