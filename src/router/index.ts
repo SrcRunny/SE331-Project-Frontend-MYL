@@ -16,6 +16,9 @@ import AdvisorLayoutView from '../views/Advisor/AdvisorLayoutView.vue'
 import AdvisorDetailView from '../views/Advisor/AdvisorDetail.vue'
 import AdvisorStudentView from '../views/Advisor/AdvisorStudentView.vue'
 import AdvisorService from '@/service/AdvisorService'
+import StudentEditView from '../views/StudentEditView.vue'
+import AdvisorEditView from '../views/AdvisorEditView.vue'
+import AnnoucementView from '../views/AnnoucementView.vue'
 import { useStudentStore } from '@/stores/student'
 import { useAdvisorStore } from '@/stores/advisor'
 
@@ -39,25 +42,41 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LoginView,
+      component: LoginView
 
     },
     {
       path: '/register',
       name: 'register',
-      component: RegisterView,
+      component: RegisterView
 
     },
     {
       path: '/studentform',
       name: 'studentform',
-      component: StudentFormView,
+      component: StudentFormView
 
     },
     {
       path: '/advisorform',
       name: 'advisorform',
-      component: AdvisorFormView,
+      component: AdvisorFormView
+    },
+    {
+      path: '/studentedit',
+      name: 'studentedit',
+      component: StudentEditView
+
+    },
+    {
+      path: '/advisoredit',
+      name: 'advisoredit',
+      component: AdvisorEditView
+    },
+    {
+      path: '/annoucement',
+      name: 'annoucement',
+      component: AnnoucementView
     },
     {
       path: '/',
