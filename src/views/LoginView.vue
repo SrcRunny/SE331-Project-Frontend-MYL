@@ -46,6 +46,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   
+  
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 animate__animated animate__fadeInUp">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <img class="mx-auto h-14 w-auto" src="https://cdn.discordapp.com/attachments/1025435978799784061/1163476048567095437/Untitled_design-modified-removebg-preview.png?ex=653fb682&is=652d4182&hm=738c9a9aa60b7f245caa42800286e90e397b1cd89ba7cb831f000418b2cf2c4f&" alt="Your Company">
@@ -70,12 +71,15 @@ const onSubmit = handleSubmit((values) => {
       </div>
 
       <div>
+        <RouterLink  :to="{name: 'student'}">
+
         <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+        </RouterLink>
       </div>
     </form>
 
     <p class="mt-10 text-center text-sm text-gray-500">
-      Not a member?
+      Not a member? 
       <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
     </p>
   </div>
