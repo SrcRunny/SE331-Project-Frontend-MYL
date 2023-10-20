@@ -51,7 +51,7 @@ const advisor = ref<AdvisorInfo>({
 
 <template>
 <div class="max-w-md mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg animate__animated animate__fadeIn">
-  <h2 class="text-2xl font-semibold mb-4">Add Student</h2>
+  <h2 class="text-2xl font-semibold mb-4">Add Advisor</h2>
   <form @submit.prevent="saveAdvisor">
     <div class="mb-4">
 

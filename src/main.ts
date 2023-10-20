@@ -4,6 +4,8 @@ import 'sweetalert2/src/sweetalert2.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import '@/service/AxiosInterceptorSetup'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'

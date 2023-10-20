@@ -23,7 +23,11 @@ function saveStudent() {
                 showConfirmButton: false,
                 timer: 2000
             });
-                        store.updateMessage('You are successfully add a new Student!!')
+            router.push({
+                name: 'student',
+                params: { id: response.data.id }
+            });
+            store.updateMessage('You are successfully add a new Student!!')
             setTimeout(() => {
                 store.resetMessage()
             }, 3000)
@@ -41,8 +45,8 @@ const student = ref<StudentInfo>({
     department: '',
     location: '',
     images: [],
-    advisor: { id: 0,name:'',surname:'', academic_position:'',department: '', images:''},
-    courses: []
+    advisor: { id: 1,name:'',surname:'', academic_position:'',department: '', images:[],roles: []},
+    courses: [{courseid:'', name:'',description:'',images:[] }]
 })
 
 </script>
