@@ -30,7 +30,7 @@ const { value: password } = useField<string>('password')
 const onSubmit = handleSubmit((values) => {
   authStore.login(values.username, values.password)
   .then(() => {
-    router.push({ name: 'studentlist'})
+    router.push({ name: 'student'})
   }).catch((err) => {
     messageStore.updateMessage('Could not login')
     setTimeout(() => {
@@ -71,10 +71,8 @@ const onSubmit = handleSubmit((values) => {
       </div>
 
       <div>
-        <RouterLink  :to="{name: 'student'}">
 
         <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
-        </RouterLink>
       </div>
     </form>
 
