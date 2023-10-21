@@ -21,6 +21,7 @@ import AdvisorEditView from '../views/AdvisorEditView.vue'
 import AnnoucementView from '../views/AnnoucementView.vue'
 import { useStudentStore } from '@/stores/student'
 import { useAdvisorStore } from '@/stores/advisor'
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,7 +44,6 @@ const router = createRouter({
       path: '/',
       name: 'login',
       component: LoginView
-
     },
     {
       path: '/register',
@@ -82,7 +82,8 @@ const router = createRouter({
       path: '/student',
       name: 'student',
       component: StudentListView,
-      props: (route) => ({page: parseInt(route.query?.page as string || '1' )})
+      props: (route) => ({page: parseInt(route.query?.page as string || '1' )}),
+
     },
     {
       path: '/student/:id',
