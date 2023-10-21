@@ -24,7 +24,7 @@ function saveStudent() {
                 timer: 2000
             });
             router.push({
-                name: 'student',
+                name: 'studentdetail',
                 params: { id: response.data.id }
             });
             store.updateMessage('You are successfully add a new Student!!')
@@ -53,7 +53,7 @@ const student = ref<StudentInfo>({
 
 <template>
 <div class="max-w-md mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg animate__animated animate__fadeIn">
-  <h2 class="text-2xl font-semibold mb-4">Add Student</h2>
+  <h2 class="text-2xl font-semibold mb-4">Put your information Here</h2>
   <form @submit.prevent="saveStudent">
     <div class="mb-4">
       <label for="studentid" class="block text-sm font-medium text-gray-600">Student ID:</label>
