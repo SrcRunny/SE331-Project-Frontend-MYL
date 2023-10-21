@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import axios from "axios";
 import type { AxiosInstance } from "axios";
 import type { StudentAdvisorDTO } from "@/student"
+import type { UserLogin } from "@/student"
 
 const apiClient: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_BACKEND_URL,
@@ -16,14 +17,20 @@ const apiClient: AxiosInstance = axios.create({
 export const useAuthStore = defineStore('auth', {
     state: () => ({
         token: null as string | null,
-        user: null as StudentAdvisorDTO | null
+        user: null as UserLogin | null
     }),
     getters: {
         currentUserName(): string {
-            return this.user?.name || ''
+            return this.user?.username || ''
         },
         isAdmin(): boolean{
             return this.user?.roles.includes('ROLE_ADMIN') || false
+        },
+        isAdvisor(): boolean{
+            return this.user?.roles.includes('ROLE_ADVISOR') || false
+        },
+        isStudent(): boolean{
+            return this.user?.roles.includes('ROLE_STUDENT') || false
         }
     },
     actions: {
@@ -49,7 +56,7 @@ export const useAuthStore = defineStore('auth', {
             localStorage.removeItem('access_token')
             localStorage.removeItem('user')
           },
-          reload(token: string, user: StudentAdvisorDTO){
+          reload(token: string, user: UserLogin){
             this.token = token
             this.user = user
           },

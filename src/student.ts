@@ -26,3 +26,10 @@ export interface StudentCourseDTO{
     description: string 
     images: string[]
 }
+
+export interface UserLogin{
+    username : string
+    email: string
+    password : String
+    roles: string[]
+}
