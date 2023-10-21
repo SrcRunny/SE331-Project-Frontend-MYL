@@ -9,8 +9,6 @@ import ImageUpload from '../components/ImageUpload.vue'
 import Swal from 'sweetalert2'
 
 const store = useMessageStore()
-
-
 const router = useRouter()
 function saveStudent() {
   StudentService.saveStudent(student.value)

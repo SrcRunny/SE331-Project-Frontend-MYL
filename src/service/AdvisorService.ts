@@ -14,5 +14,8 @@ export default{
     },
     getAdvisorsByKeyword(keyword: string, perPage: number, page: number): Promise<AxiosResponse<AdvisorInfo[]>> {
         return apiClient.get<AdvisorInfo[]>('/advisors?title=' + keyword + '&_limit=' + perPage + '&_page=' + page)
-    }     
+    },
+    editAdvisor(id:number,advisor: AdvisorInfo): Promise<AxiosResponse<AdvisorInfo>> {
+        return apiClient.post<AdvisorInfo>('/advisors/'+id.toString(), advisor)
+    }   
 }

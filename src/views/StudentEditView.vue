@@ -9,11 +9,14 @@ import ImageUpload from '../components/ImageUpload.vue'
 import Swal from 'sweetalert2'
 
 const store = useMessageStore()
+const props = defineProps({
+    id: String
+})
 
 
 const router = useRouter()
 function saveStudent() {
-  StudentService.saveStudent(student.value)
+  StudentService.editStudent(Number(props.id),student.value)
   .then((response) => {
             console.log(response.data)
             Swal.fire({
