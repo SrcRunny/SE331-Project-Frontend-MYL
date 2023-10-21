@@ -40,7 +40,7 @@ const router = createRouter({
 
     },
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       component: LoginView
 
@@ -79,7 +79,7 @@ const router = createRouter({
       component: AnnoucementView
     },
     {
-      path: '/',
+      path: '/student',
       name: 'student',
       component: StudentListView,
       props: (route) => ({page: parseInt(route.query?.page as string || '1' )})

@@ -63,9 +63,7 @@ const onSubmit = handleSubmit((values) => {
       <div>
         <div class="flex items-center justify-between">
           <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-          <div class="text-sm">
-            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-          </div>
+
         </div>
         <InputText type="password" v-model="password" :error="errors['password']"></InputText>
       </div>
@@ -78,7 +76,9 @@ const onSubmit = handleSubmit((values) => {
 
     <p class="mt-10 text-center text-sm text-gray-500">
       Not a member? 
-      <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
+      <router-link :to="{name:'register'}">
+         <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register Here</a>
+</router-link>
     </p>
   </div>
 </div>
