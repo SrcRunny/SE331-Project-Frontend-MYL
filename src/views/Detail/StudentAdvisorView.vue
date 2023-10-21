@@ -12,7 +12,9 @@ defineProps({
 </script>
 
 <template>
-  <div class="card lg:card-side bg-base-100 shadow-xl animate__animated animate__zoomIn">
+  <RouterLink  :to="{name: 'advisordetail', params:{id: student?.advisor.id}}" >
+
+  <div class="hover:bg-gray-200 hover:shadow-md transition duration-300 card lg:card-side bg-base-100 shadow-xl animate__animated animate__zoomIn">
     <div v-if="student?.advisor?.images && student?.advisor?.images.length > 0">
       <img :src="student?.advisor?.images[0]" class="rounded-md w-13 h-13 mt-4" />
     </div>    <div class="card-body">
@@ -24,6 +26,7 @@ defineProps({
 
 
   </div>
+  </RouterLink>
 </template>
 
 <style scoped>

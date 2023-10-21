@@ -81,21 +81,21 @@ const router = createRouter({
       name: 'student',
       component: StudentListView,
       props: (route) => ({ page: parseInt((route.query?.page as string) || '1') }),
-      beforeEnter: () => {
-        const authStore = useAuthStore()
-        const id = authStore.getID
-        console.log(id)
-        if (authStore.isStudent) {
-          return router.push({
-            name: 'studentdetail',
-            params: { id: authStore.getID }
-          })
-        } else {
-          return router.push({
-            name: 'student'
-          })
-        }
-      }
+      // beforeEnter: () => {
+      //   const authStore = useAuthStore()
+      //   // const id = authStore.getID
+      //   // console.log(id)
+      //   if (authStore.isStudent) {
+      //     return router.push({
+      //       name: 'student',
+      //       // params: { id: authStore.getID }
+      //     })
+      //   } else {
+      //     return router.push({
+      //       name: 'advisor'
+      //     })
+      //   }
+      // }
     },
     {
       path: '/student/:id',

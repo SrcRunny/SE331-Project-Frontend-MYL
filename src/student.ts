@@ -26,6 +26,11 @@ export interface StudentCourseDTO{
     description: string 
     images: string[]
 }
+export interface StudentAuthDTO{
+    id: number
+    name: string
+    roles: string[]
+}
 
 export interface UserLogin{
     username : string

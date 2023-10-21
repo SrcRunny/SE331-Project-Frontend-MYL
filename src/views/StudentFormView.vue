@@ -22,7 +22,7 @@ function saveStudent() {
                 timer: 2000
             });
             router.push({
-                name: 'studentdetail',
+                name: 'student',
                 params: { id: response.data.id }
             });
             store.updateMessage('You are successfully add a new Student!!')
