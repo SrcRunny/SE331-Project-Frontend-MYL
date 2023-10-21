@@ -31,5 +31,6 @@ export interface UserLogin{
     username : string
     email: string
     password : String
+    student: StudentInfo
     roles: string[]
 }

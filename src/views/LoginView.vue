@@ -6,6 +6,7 @@ import { useField, useForm } from 'vee-validate';
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message';
+import Swal from 'sweetalert2'
 
 const messageStore = useMessageStore()
 const router = useRouter()
@@ -29,7 +30,16 @@ const { value: username } = useField<string>('username')
 const { value: password } = useField<string>('password')
 const onSubmit = handleSubmit((values) => {
   authStore.login(values.username, values.password)
-  .then(() => {
+  .then((response) => {
+    Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'WELCOME!!!',
+                showConfirmButton: false,
+                timer: 2000
+            });
+    console.log(response.data)
+    
     router.push({ name: 'student'})
   }).catch((err) => {
     messageStore.updateMessage('Could not login')

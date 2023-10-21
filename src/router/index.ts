@@ -30,15 +30,13 @@ const router = createRouter({
       path: '/advisor',
       name: 'advisor',
       component: AdvisorListView,
-      props: (route) => ({page: parseInt(route.query?.page as string || '1' )})
-
+      props: (route) => ({ page: parseInt((route.query?.page as string) || '1') })
     },
     {
       path: '/course',
       name: 'course',
       component: CourseListView,
-      props: (route) => ({page: parseInt(route.query?.page as string || '1' )})
-
+      props: (route) => ({ page: parseInt((route.query?.page as string) || '1') })
     },
     {
       path: '/',
@@ -49,13 +47,11 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: RegisterView
-
     },
     {
       path: '/studentform',
       name: 'studentform',
       component: StudentFormView
-
     },
     {
       path: '/advisorform',
@@ -66,7 +62,6 @@ const router = createRouter({
       path: '/studentedit',
       name: 'studentedit',
       component: StudentEditView
-
     },
     {
       path: '/advisoredit',
@@ -82,53 +77,67 @@ const router = createRouter({
       path: '/student',
       name: 'student',
       component: StudentListView,
-      props: (route) => ({page: parseInt(route.query?.page as string || '1' )}),
-
+      props: (route) => ({ page: parseInt((route.query?.page as string) || '1') }),
+      beforeEnter: () => {
+        const authStore = useAuthStore()
+        const id = authStore.getID
+        console.log(id)
+        if (authStore.isStudent) {
+          return router.push({
+            name: 'studentdetail',
+            params: { id: authStore.getID }
+          })
+        } else {
+          return router.push({
+            name: 'student'
+          })
+        }
+      }
     },
     {
       path: '/student/:id',
       name: 'studentlayout',
-      component: StudentLayoutView, 
+      component: StudentLayoutView,
       props: true,
-        beforeEnter: (to) => {
-          const id: number = parseInt(to.params.id as string)
-          const studentStore = useStudentStore()
-          return StudentService.getStudentById(id)
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const studentStore = useStudentStore()
+        return StudentService.getStudentById(id)
           .then((response) => {
             studentStore.setStudent(response.data)
           })
           .catch((error) => {
-            if (error.response && error.response.status === 404){
-              return{
+            if (error.response && error.response.status === 404) {
+              return {
                 name: '404-resource',
-                params: { resource: 'student'}
+                params: { resource: 'student' }
               }
-            }else{
-              return { name: 'network-error'}
+            } else {
+              return { name: 'network-error' }
             }
           })
-        },
-      children:[
+      },
+      children: [
         {
-          path:'',
+          path: '',
           name: 'studentdetail',
           component: StudentDetailView,
           props: true
         },
         {
-          path:'/studentadvisor',
+          path: '/studentadvisor',
           name: 'studentadvisor',
           component: StudentAdvisorView,
           props: true
         },
         {
-          path:'/studentcourse',
+          path: '/studentcourse',
           name: 'studentcourse',
           component: StudentCourseView,
           props: true
         },
         {
-          path:'/studentcomment',
+          path: '/studentcomment',
           name: 'studentcomment',
           component: StudentCommentView,
           props: true
@@ -138,42 +147,41 @@ const router = createRouter({
     {
       path: '/advisor/:id',
       name: 'advisorlayout',
-      component: AdvisorLayoutView, 
+      component: AdvisorLayoutView,
       props: true,
-        beforeEnter: (to) => {
-          const id: number = parseInt(to.params.id as string)
-          const advisorStore = useAdvisorStore()
-          return AdvisorService.getAdvisorById(id)
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const advisorStore = useAdvisorStore()
+        return AdvisorService.getAdvisorById(id)
           .then((response) => {
             advisorStore.setAdvisor(response.data)
           })
           .catch((error) => {
-            if (error.response && error.response.status === 404){
-              return{
+            if (error.response && error.response.status === 404) {
+              return {
                 name: '404-resource',
-                params: { resource: 'advisor'}
+                params: { resource: 'advisor' }
               }
-            }else{
-              return { name: 'network-error'}
+            } else {
+              return { name: 'network-error' }
             }
           })
-        },
-      children:[
+      },
+      children: [
         {
-          path:'',
+          path: '',
           name: 'advisordetail',
           component: AdvisorDetailView,
           props: true
         },
         {
-          path:'/advisorstudent',
+          path: '/advisorstudent',
           name: 'advisorstudent',
           component: AdvisorStudentView,
           props: true
         }
       ]
-    },
-    
+    }
   ]
 })
 

@@ -17,7 +17,8 @@ const apiClient: AxiosInstance = axios.create({
 export const useAuthStore = defineStore('auth', {
     state: () => ({
         token: null as string | null,
-        user: null as UserLogin | null
+        user: null as UserLogin | null,
+        id : null as number | null
     }),
     getters: {
         currentUserName(): string {
@@ -31,6 +32,9 @@ export const useAuthStore = defineStore('auth', {
         },
         isStudent(): boolean{
             return this.user?.roles.includes('ROLE_STUDENT') || false
+        },
+        getID(): number{
+            return this.id || 0
         }
     },
     actions: {
@@ -43,6 +47,8 @@ export const useAuthStore = defineStore('auth', {
             .then((response) => {
                 this.token = response.data.access_token
                 this.user = response.data.user
+                 this.id = response.data.student.id
+                console.log(this.id)
                 localStorage.setItem('access_token', this.token as string)
                 localStorage.setItem('user', JSON.stringify(this.user))
                 axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
