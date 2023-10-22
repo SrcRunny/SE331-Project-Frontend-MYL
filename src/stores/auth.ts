@@ -18,7 +18,7 @@ export const useAuthStore = defineStore('auth', {
     state: () => ({
         token: null as string | null,
         user: null as UserLogin | null,
-        id : null as number | null
+        // id : null as number | null
     }),
     getters: {
         currentUserName(): string {
@@ -33,9 +33,9 @@ export const useAuthStore = defineStore('auth', {
         isStudent(): boolean{
             return this.user?.roles.includes('ROLE_STUDENT') || false
         },
-        getID(): number{
-            return this.id || 0
-        }
+        // getID(): number{
+        //     return this.id || 0
+        // }
     },
     actions: {
         login(username: string, password: string){
@@ -52,7 +52,7 @@ export const useAuthStore = defineStore('auth', {
                 localStorage.setItem('user', JSON.stringify(this.user))
                 axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
                 return response
-            })
+            })  
         },
         logout(){
             console.log('logout')

@@ -41,8 +41,7 @@ function saveAnnouce() {
                 timer: 2000
             });
             router.push({
-                name: 'annoucement',
-                params: { id: response.data.id }
+                name: 'advisordetail',
             });
             store.updateMessage('You have successfully added a new Advisor!!');
             setTimeout(() => {
@@ -62,17 +61,40 @@ function saveAnnouce() {
 <template>
     <div v-if="authStore.isAdvisor" class="animate__animated animate__zoomIn">
 <div class="heading text-center font-bold text-2xl m-5 text-gray-800 " >Add Post</div>
+<form @submit.prevent="saveAnnouce">
+
   <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl">
-    <input class="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none" spellcheck="false" placeholder="Title" type="text">
-    <textarea class="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none" spellcheck="false" placeholder="Describe everything about this post here"></textarea>
-    
+    <div class="mb-4">
+
+<label for="title" class="block text-sm font-medium text-gray-600">Title</label>
+<BaseInput
+    v-model="annouce.title"
+     type="title"
+     class="border border-gray-300 rounded-md py-2 px-4 w-full focus:outline-none focus:ring focus:border-blue-300 mt-1"
+     />
+</div>    
+<div class="mb-4">
+      <label for="description" class="block text-sm font-medium text-gray-600">Description</label>
+      <BaseInput
+          v-model="annouce.description"
+           type="description"
+           class="border border-gray-300 rounded-md py-2 px-4 w-full focus:outline-none focus:ring focus:border-blue-300 mt-1"
+
+           />
+    </div>    
     <!-- icons -->
-    <h3 class="mt-5 mb-5">Add File Here</h3>
-    <!-- <image-upload v-model="annouce.images" /> -->
+    <h3 class="mb-4">Add File Here</h3>
+    <image-upload v-model="annouce.file" />
     <!-- buttons -->
-    <div class="buttons flex">
-      <div class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-auto bg-indigo-500">Post</div>
-    </div>
+    <button
+      type="submit"
+      class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
+    >
+      Upload Post
+    </button>
+    
   </div>
+</form>
+
 </div>
 </template>

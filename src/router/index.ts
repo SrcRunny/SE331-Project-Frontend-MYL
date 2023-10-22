@@ -19,6 +19,9 @@ import AdvisorService from '@/service/AdvisorService'
 import StudentEditView from '../views/StudentEditView.vue'
 import AdvisorEditView from '../views/AdvisorEditView.vue'
 import AnnoucementView from '../views/AnnoucementView.vue'
+import AnnoucementStudentView from '../views/AnnoucementStudentView.vue'
+import CommentCardView from '../components/CommentCard.vue'
+
 import { useStudentStore } from '@/stores/student'
 import { useAdvisorStore } from '@/stores/advisor'
 import { useAuthStore } from '@/stores/auth'
@@ -72,9 +75,19 @@ const router = createRouter({
       props:true
     },
     {
-      path: '/annoucement',
-      name: 'annoucement',
+      path: '/annouce',
+      name: 'annouce',
       component: AnnoucementView
+    },
+    {
+      path: '/commentcard',
+      name: 'commentcard',
+      component: CommentCardView
+    },
+    {
+      path: '/annoucestudent',
+      name: 'annoucestudent',
+      component: AnnoucementStudentView
     },
     {
       path: '/student',
@@ -83,12 +96,12 @@ const router = createRouter({
       props: (route) => ({ page: parseInt((route.query?.page as string) || '1') }),
       // beforeEnter: () => {
       //   const authStore = useAuthStore()
-      //   // const id = authStore.getID
-      //   // console.log(id)
+      //   const id = authStore.getID
+      //   console.log(id)
       //   if (authStore.isStudent) {
       //     return router.push({
       //       name: 'student',
-      //       // params: { id: authStore.getID }
+      //       params: { id: authStore.getID }
       //     })
       //   } else {
       //     return router.push({
