@@ -8,15 +8,20 @@ import Swal from 'sweetalert2';
 import type { CommentInfo } from '@/comment';
 import CommentCard from "@/components/CommentCard.vue";
 import { useCommentStore } from '@/stores/comment';
+import { useAuthStore } from '@/stores/auth';
 
+const authStore = useAuthStore()
 const commentStore = useCommentStore();
 const store = useMessageStore();
 const router = useRouter();
 const comments = ref<CommentInfo[]>([]);
 const comment = ref<CommentInfo>({
-    id: 0,
+    advisorId: 0,
     description: ''
 });
+CommentService.getAllComment(authStore.getID).then((response)=>{
+    console.log(response.data)
+})
 
 function saveComment() {
     CommentService.saveComment(comment.value)
@@ -28,6 +33,9 @@ function saveComment() {
 
         commentStore.setComment(response.data);
         localStorage.setItem('savedComment', JSON.stringify(response.data));
+        CommentService.getAllComment(authStore.getID).then((response)=>{
+        console.log(response.data)
+})
 
         Swal.fire({
             position: 'center',
@@ -97,7 +105,7 @@ onMounted(() => {
 
 <CommentCard
     v-for="comment in comments"
-    :key="comment.id"
+    :key="comment.advisorId "
     :comment="comment"
   ></CommentCard>
 </template>

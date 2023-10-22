@@ -33,9 +33,9 @@ export const useAuthStore = defineStore('auth', {
         isStudent(): boolean{
             return this.user?.roles.includes('ROLE_STUDENT') || false
         },
-        // getID(): number{
-        //     return this.id || 0
-        // }
+        getID(): number{
+            return this.user?.id || 0
+        }
     },
     actions: {
         login(username: string, password: string){

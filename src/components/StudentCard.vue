@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { StudentInfo } from '@/student'
 import type { PropType } from 'vue'
+import { useAuthStore } from '../stores/auth';
 
+const authStore = useAuthStore()
 const props = defineProps({
     student: {
         type: Object as PropType<StudentInfo>,
@@ -12,7 +14,7 @@ const props = defineProps({
 </script>
 
 <template>
-<div class="card w-96 bg-base-100 shadow-xl box animate__animated animate__fadeInLeft">
+<div class="card w-96 bg-base-100 shadow-xl box animate__animated animate__fadeInLeft" v-if="authStore.isAdmin || !authStore.isAdvisor">
   <img v-for="image in student?.images" :key="image" :src="image" class="rounded-md w-13 h-13 "/>
     <div class="card-body">
     <h2 class="card-title">{{ student?.name }} {{ student?.surname }}</h2>

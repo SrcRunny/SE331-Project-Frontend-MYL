@@ -85,7 +85,7 @@ const hasNextPage = computed(()=>{
     </div>
     <div class="flex justify-end items-center flex-wrap mr-6">
       <router-link :to="{name:'studentform'}">
-      <button  v-if="!authStore.isStudent" type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-auto">
+      <button  v-if="authStore.isAdmin" type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-auto">
         + Add Student
       </button>
     </router-link>
@@ -111,7 +111,7 @@ const hasNextPage = computed(()=>{
       class="mb-  "
     ></StudentCard>
     </div>
-    <div class="flex justify-center items-center flex-wrap mr-5 ml-5">
+    <div class="flex justify-center items-center flex-wrap mr-5 ml-5" v-if="authStore.isAdmin || authStore.isStudent">
     <RouterLink
         :to="{ name: 'student', query: { page: page - 1 } }"
         rel="prev"
