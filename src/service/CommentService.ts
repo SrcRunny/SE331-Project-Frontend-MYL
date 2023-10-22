@@ -10,9 +10,12 @@ export default{
         return apiClient.get<CommentInfo>('comments/' + id.toString())
     },
     saveComment(comment: CommentInfo): Promise<AxiosResponse<CommentInfo>> {
-        return apiClient.post<CommentInfo>('/comments', comment)
+        return apiClient.post<CommentInfo>('/comments', comment);
     },
+    
     getCommentsByKeyword(keyword: string, perPage: number, page: number): Promise<AxiosResponse<CommentInfo[]>> {
         return apiClient.get<CommentInfo[]>('/comments?title=' + keyword + '&_limit=' + perPage + '&_page=' + page)
+
+        
     }     
 }

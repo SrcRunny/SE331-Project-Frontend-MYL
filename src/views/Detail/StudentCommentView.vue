@@ -7,7 +7,9 @@ import BaseInput from '@/components/BaseInput.vue';
 import Swal from 'sweetalert2';
 import type { CommentInfo } from '@/comment';
 import CommentCard from "@/components/CommentCard.vue";
+import { useCommentStore } from '@/stores/comment';
 
+const commentStore = useCommentStore();
 const store = useMessageStore();
 const router = useRouter();
 const comments = ref<CommentInfo[]>([]);
@@ -21,8 +23,11 @@ function saveComment() {
     .then((response) => {
         console.log(response.data);
         const savedComment = response.data;
-
+      
         comments.value.push(savedComment);
+
+        commentStore.setComment(response.data);
+        localStorage.setItem('savedComment', JSON.stringify(response.data));
 
         Swal.fire({
             position: 'center',
@@ -45,6 +50,17 @@ function saveComment() {
         router.push({ name: 'network-error' });
     });
 }
+
+
+onMounted(() => {
+    const savedComment = localStorage.getItem('savedComment');
+    if (savedComment) {
+        const parsedComment = JSON.parse(savedComment);
+        commentStore.setComment(parsedComment);
+    }
+});
+
+
 </script>
 
 <template>
@@ -56,7 +72,7 @@ function saveComment() {
         <div class="flex flex-wrap -mx-3 mb-6">
            <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new comment</h2>
            <div class="w-full md:w-full px-3 mb-2 mt-2">
-            <label for="commentdescription" class="block text-sm font-medium text-gray-600">Comment Here</label>
+            <label for="commentdescription" class="block text-sm font-medium text-gray-600"><strong>Comment Here</strong></label>
                 <BaseInput
                 v-model="comment.description"
                 type="text"

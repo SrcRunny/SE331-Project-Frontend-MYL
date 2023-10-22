@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { CommentInfo } from '@/comment'
 import type { PropType } from 'vue'
-
+import { useCommentStore } from '@/stores/comment';
+const commentStore = useCommentStore();
 const props = defineProps({
     comment: {
         type: Object as PropType<CommentInfo>,
