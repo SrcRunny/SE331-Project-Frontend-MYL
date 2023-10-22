@@ -22,7 +22,7 @@ function saveStudent() {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'You are successfully add a new Student!!',
+                title: 'Successfully Edit!!',
                 showConfirmButton: false,
                 timer: 2000
             });

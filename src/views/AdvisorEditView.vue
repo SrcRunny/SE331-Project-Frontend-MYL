@@ -22,7 +22,7 @@ function saveAdvisor() {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'You have successfully added a new Advisor!!',
+                title: 'Successfully edit advisor!!',
                 showConfirmButton: false,
                 timer: 2000
             });
