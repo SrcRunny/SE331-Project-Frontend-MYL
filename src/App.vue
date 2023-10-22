@@ -31,7 +31,7 @@ function logout(){
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="https://flowbite.com/" class="flex items-center">
       <img src="https://cdn.discordapp.com/attachments/1025435978799784061/1163476048567095437/Untitled_design-modified-removebg-preview.png?ex=653fb682&is=652d4182&hm=738c9a9aa60b7f245caa42800286e90e397b1cd89ba7cb831f000418b2cf2c4f&" class="h-8 mr-3" alt="Flowbite Logo" />
-      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><span style="color: rgb(21, 7, 29);">M</span>hokYhongling</span>
+      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><span style="color: rgb(0, 0, 0); font-family: 'Times New Roman', Times, serif; font-size: 55px;">MYL</span></span>
   </a>
 
         <!-- header --> 
