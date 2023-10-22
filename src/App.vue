@@ -27,7 +27,7 @@ function logout(){
 
 <template>
 
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
+<nav class="bg-white border-gray-200 dark:bg-gray-900" v-if="authStore.currentUserName">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="https://flowbite.com/" class="flex items-center">
       <img src="https://cdn.discordapp.com/attachments/1025435978799784061/1163476048567095437/Untitled_design-modified-removebg-preview.png?ex=653fb682&is=652d4182&hm=738c9a9aa60b7f245caa42800286e90e397b1cd89ba7cb831f000418b2cf2c4f&" class="h-8 mr-3" alt="Flowbite Logo" />

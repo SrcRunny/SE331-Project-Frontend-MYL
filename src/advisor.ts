@@ -17,3 +17,10 @@ export interface AdvisorStudentDTO{
     location: string
     images: string[]
 }
+
+export interface AdvisorAnnouceDTO{
+    id: number
+    file: string[]
+    title: string
+    description: string
+}
