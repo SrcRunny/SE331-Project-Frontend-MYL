@@ -15,7 +15,7 @@ const props = defineProps({
 <div class="card w-96 bg-base-100 shadow-xl box animate__animated animate__fadeInLeft">
   <img v-for="image in student?.images" :key="image" :src="image" class="rounded-md w-13 h-13 "/>
     <div class="card-body">
-    <h2 class="card-title">{{ student?.name  }} {{ student?.surname }}</h2>
+    <h2 class="card-title">{{ student?.name }} {{ student?.surname }}</h2>
     <p>StudentID : {{ student?.studentid  }}</p>
 
 

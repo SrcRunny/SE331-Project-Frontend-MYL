@@ -1,12 +1,12 @@
-import type { StudentInfo } from '@/student'
+import type { CommentInfo } from '@/comment'
 import { defineStore } from 'pinia'
-export const useStudentStore = defineStore('student', {
+export const useCommentStore = defineStore('comment', {
     state: () => ({
-        student: null as StudentInfo | null
+        comment: null as CommentInfo | null
     }),
     actions: {
-        setStudent(student: StudentInfo){
-            this.student = student
+        setComment(comment: CommentInfo){
+            this.comment = comment
         }
     }
 })

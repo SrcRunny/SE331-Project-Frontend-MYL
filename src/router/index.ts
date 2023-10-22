@@ -21,7 +21,6 @@ import AdvisorEditView from '../views/AdvisorEditView.vue'
 import AnnoucementView from '../views/AnnoucementView.vue'
 import AnnoucementStudentView from '../views/AnnoucementStudentView.vue'
 import CommentCardView from '../components/CommentCard.vue'
-
 import { useStudentStore } from '@/stores/student'
 import { useAdvisorStore } from '@/stores/advisor'
 import { useAuthStore } from '@/stores/auth'
@@ -156,7 +155,7 @@ const router = createRouter({
           path: '/studentcomment',
           name: 'studentcomment',
           component: StudentCommentView,
-          props: true
+          props: (route) => ({ page: parseInt((route.query?.page as string) || '1') })
         }
       ]
     },
