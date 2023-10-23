@@ -1,6 +1,6 @@
 version: "3.9"
 services:
     web:
-        image: "runnydoggy/se331-lab06:latest"
+        image: "runnydoggy/se331-project-frontend:latest"
         ports:
             - 8001:80
