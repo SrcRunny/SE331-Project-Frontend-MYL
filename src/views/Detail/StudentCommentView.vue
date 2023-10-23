@@ -16,9 +16,11 @@ const store = useMessageStore();
 const router = useRouter();
 const comments = ref<CommentInfo[]>([]);
 const comment = ref<CommentInfo>({
+    id: 0,
     advisorId: 0,
     description: ''
 });
+
 CommentService.getAllComment(authStore.getID).then((response)=>{
     console.log(response.data)
 })
@@ -28,9 +30,7 @@ function saveComment() {
     .then((response) => {
         console.log(response.data);
         const savedComment = response.data;
-      
         comments.value.push(savedComment);
-
         commentStore.setComment(response.data);
         localStorage.setItem('savedComment', JSON.stringify(response.data));
         CommentService.getAllComment(authStore.getID).then((response)=>{
@@ -60,13 +60,13 @@ function saveComment() {
 }
 
 
-onMounted(() => {
-    const savedComment = localStorage.getItem('savedComment');
-    if (savedComment) {
-        const parsedComment = JSON.parse(savedComment);
-        commentStore.setComment(parsedComment);
-    }
-});
+// onMounted(() => {
+//     const savedComment = localStorage.getItem('savedComment');
+//     if (savedComment) {
+//         const parsedComment = JSON.parse(savedComment);
+//         commentStore.setComment(parsedComment);
+//     }
+// });
 
 
 </script>

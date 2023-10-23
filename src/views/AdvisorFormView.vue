@@ -21,7 +21,7 @@ function saveAdvisor() {
                 icon: 'success',
                 title: 'You have successfully added a new Advisor!!',
                 showConfirmButton: false,
-                timer: 2000
+                  timer: 2000
             });
             router.push({
                 name: 'advisor',

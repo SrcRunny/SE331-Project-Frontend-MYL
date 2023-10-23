@@ -99,7 +99,7 @@ const router = createRouter({
       //   console.log(id)
       //   if (authStore.isStudent) {
       //     return router.push({
-      //       name: 'student',
+      //       name: 'studentdetail',
       //       params: { id: authStore.getID }
       //     })
       //   } else {
